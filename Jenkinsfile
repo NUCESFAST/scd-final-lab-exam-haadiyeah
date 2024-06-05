@@ -1,10 +1,11 @@
+//HAADIYA SAJID I21-1216!!
+
 pipeline {
-    agent any
+    agent any 
 
     stages {
         stage('i211216 Checkout') {
             steps {
-                sh 'git --version'
                 git credentialsId: 'github-credentials-pat', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-haadiyeah.git'
             }
         }
