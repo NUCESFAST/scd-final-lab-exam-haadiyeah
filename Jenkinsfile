@@ -5,6 +5,7 @@ pipeline {
         stage('i211216 Checkout') {
             steps {
                 sh 'echo "i21-1216 Checking out code"'
+                sh 'git --version'
                 git credentialsId: 'github-credentials-pat', url: 'https://github.com/NUCESFAST/scd-final-lab-exam-haadiyeah.git'
             }
         }
@@ -19,7 +20,7 @@ pipeline {
         stage('i211216 Login to DockerHub') {
             steps {
                 sh 'echo "i21-1216 Logging in to DockerHub"'
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials-pat', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                 }
             }
