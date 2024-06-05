@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var url = 'mongodb://localhost:27017/';
+let users={};
 
 app.post('/create_class', async (req, res) => {
     const classId = randomBytes(3).toString('hex');
@@ -97,6 +98,8 @@ app.get('/get_classes/:id', async (req, response) => {
 async function resolvePromise(dbo, x) {
     return await dbo.collection('classes').find({ id: x }).toArray();
 }
+
+
 
 app.post('/events', async (req, res) => {
     console.log('Recieved event', req.body.type);

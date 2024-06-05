@@ -1,0 +1,22 @@
+#pushing the images to docker hub (i21-1216-haadiya sajid)
+version: '3'
+services:
+  auth:
+    build: ./Auth
+    image: haadiyasajid/final-exam:auth
+
+  classrooms:
+    build: ./Classrooms
+    image: haadiyasajid/final-exam:classroom
+
+  client:
+    build: ./client
+    image: haadiyasajid/final-exam:client
+
+  event-bus:
+    build: ./event-bus
+    image: haadiyasajid/final-exam:event-bus
+
+  post:
+    build: ./post
+    image: haadiyasajid/final-exam:post
