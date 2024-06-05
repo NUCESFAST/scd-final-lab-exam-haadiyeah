@@ -5,7 +5,7 @@ pipeline {
         stage('i211216 Checkout') {
             steps {
                 sh 'echo "i21-1216 Checking out code"'
-                git credentialsId: 'github-credentials', url: 'https://github.com/yourusername/yourrepository.git'
+                git credentialsId: 'github-credentials-pat', url: 'https://github.com/yourusername/yourrepository.git'
             }
         }
 
